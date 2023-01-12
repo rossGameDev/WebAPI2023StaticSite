@@ -1,5 +1,6 @@
 var express = require("express");
 var app = express();
+var port = process.env.port || 3000
 
 //setup for a route for static files
 app.use(express.static(__dirname+"/static"))
@@ -14,6 +15,11 @@ app.get('/home', function(req,res){
     res.send("Soon to be the home page of our great website!")
 })
   
-app.listen(3000, function(){
+app.listen(port, function(){
+    
+    if(port == 3000)
+    {
+        console.log("Running on localhost 3000")
+    }
     console.log("Running on localhost 3000")
 })
